@@ -80,7 +80,8 @@ createApp({
     created(){
         this.init_css_var(),
         this.random_start(),
-        this.autoplay_go()
+        this.autoplay_go(),
+        this.check_keyboard()
     },
     methods: 
     {
@@ -97,12 +98,33 @@ createApp({
 
         autoplay_go()
         {
-            this.autoplay = setInterval( () => {this.movie_forward()}, 2000);
+            // this.autoplay = setInterval( () => {this.movie_forward()}, 2000);
         },
 
         autoplay_stop()
         {
-            clearInterval(this.autoplay);
+            // clearInterval(this.autoplay);
+        },
+
+        check_keyboard()
+        {
+            window.addEventListener("keydown", (key_event) => 
+            {
+                console.log(key_event.key);
+                if (key_event.key == "ArrowLeft")
+                {
+                    this.movie_back();
+                }
+                else if (key_event.key == "ArrowRight")
+                {
+                    this.movie_forward();
+                }
+                else if (key_event.key >= 1 && key_event.key <= this.all_movies.length)
+                {
+                    // Trattandosi di pressione singola del tasto, non si va oltre il numero "9" a prescindere dalla dimensione dell'array
+                    this.movie_jump(key_event.key - 1);
+                }
+            });
         },
 
         get_img_path(img_index)
@@ -124,6 +146,6 @@ createApp({
         movie_jump(movie_index)
         {
             this.current_movie = movie_index;
-        }
+        },
     }
 }).mount('#app')
