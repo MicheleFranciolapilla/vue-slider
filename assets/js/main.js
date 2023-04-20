@@ -77,10 +77,15 @@ createApp({
             ]
         }
     },
+    // Metodi invocati dopo il caricamento della pagina
     created(){
+        // Inizializzatore della variabile CSS con il numero totale di films (immagini). Variabile utilizzata in style.css per dimensionare le miniature
         this.init_css_var(),
+        // Metodo che inizializza l'immagine attiva su un valore casuale
         this.random_start(),
+        // Attivazione ed avviamento dell'autoplay
         this.autoplay_go(),
+        // Metodo che "ascolta" ed elabora gli eventi da tastiera
         this.check_keyboard()
     },
     methods: 
@@ -106,6 +111,7 @@ createApp({
             clearInterval(this.autoplay);
         },
 
+        // Metodo che assegna le funzioni opportune di cambio immagine, a seconda del tasto premuto (tasti freccia o numero)
         check_keyboard()
         {
             window.addEventListener("keydown", (key_event) => 
@@ -127,25 +133,29 @@ createApp({
             });
         },
 
+        // Metodo che restituisce la stringa con l'intero percorso dell'immagine richiesta
         get_img_path(img_index)
         {
             console.log(img_index,this.img_folder + this.all_movies[img_index].img_name)
             return this.img_folder + this.all_movies[img_index].img_name;
         },
 
+        // Cambio immagine su "precedente"
         movie_back()
         {
             (this.current_movie === 0) ? (this.current_movie = this.all_movies.length - 1) : (this.current_movie--);
         },
 
+        // Cambio immagine su "successiva"
         movie_forward()
         {
             (this.current_movie === this.all_movies.length - 1) ? (this.current_movie = 0) : (this.current_movie++);
         },
 
+        // Cambio immagine diretta, a seguito di click su miniatura o pressione tasto numerico
         movie_jump(movie_index)
         {
             this.current_movie = movie_index;
         },
     }
-}).mount('#app')
+}).mount('#vue_app')

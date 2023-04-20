@@ -1,6 +1,9 @@
+/* VARIABILI CSS */
 :root
 {
+    /* Ampiezza dei contenitori di immagine */
     --section_width : 80vw;
+    /* NUmero di films nell'array.js Il valore della variabile viene assegnato direttamente dal main.js */
     --movie_amount  : 0; 
 }
 
@@ -19,6 +22,7 @@
     height: 70%;
 }
 
+/* Box contenente le informazioni sul film */
 #web_page #image_box #info_box
 {
     padding: 5px;
@@ -29,6 +33,7 @@
     color: white;
 }
 
+/* Aree cliccabili per il cambio immagine */
 #web_page #image_box #prev_movie,
 #web_page #image_box #next_movie
 {
@@ -37,6 +42,7 @@
     cursor: pointer;
 }
 
+/* Contenitore delle miniature */
 #web_page #thumbs_box
 {
     height: 15%;
@@ -44,6 +50,7 @@
     border: 3px solid blue;
 }
 
+/* Caratteristiche delle immagini (sia grande che miniature) */
 #web_page img
 {
     width: 100%;
@@ -52,29 +59,53 @@
     object-position: center top;
 }
 
+/* Attributi delle immagini non attive + transizione */
 img
 {
     filter: brightness(10%);
     transition: all 1.5s; 
 }
 
+/* Attributo delle immagini attive */
 img.active
 {
     filter: brightness(100%);
 }
 
+/* Frecce di sliding (poco visibili per default) */
+#web_page #image_box aside span
+{
+    font-size: 3rem;
+    font-weight: 200;
+    color: white;
+    padding: 0 1rem;
+    opacity: 0.05;
+    transition: all 1.5s;
+}
+
+/* Frecce di sliding durante hover */
+#web_page #image_box aside:hover span
+{
+    font-size: 4rem;
+    font-weight: 800;
+    opacity: 1;
+}
+
+/* Contenitore della singola miniatura */
 #web_page #thumbs_box div
 {
     cursor: pointer;
     width: calc(95% / var(--movie_amount));
 }
 
+/* Miniatura attiva */
 #web_page #thumbs_box div img.active
 {
     cursor: initial;
     border: 3px solid yellow;
 }
 
+/* Indice della singola miniatura non attiva */
 #web_page #thumbs_box div span
 {
     width: 3rem;
@@ -85,4 +116,11 @@ img.active
     color: white;
     border: 3px solid white;
     border-radius: 50%;
+    transition: all 1.5s;
+}
+
+#web_page #thumbs_box div:hover span
+{
+    color: yellow;
+    border: 3px solid yellow;
 }
