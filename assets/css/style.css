@@ -2,7 +2,7 @@
 :root
 {
     /* Ampiezza dei contenitori di immagine */
-    --section_width : 80vw;
+    --section_width : 90vw;
     /* NUmero di films nell'array.js Il valore della variabile viene assegnato direttamente dal main.js */
     --movie_amount  : 0; 
 }
