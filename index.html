@@ -28,7 +28,7 @@
                 <aside id="next_movie" class="p_abs p_top_right" @click="movie_forward"></aside>
             </section>
             <section id="thumbs_box" class="d_flex flex_main_btw flex_cross_center">
-                <img v-for = "(element, index) in all_movies" v-bind:src="get_img_path(index)" v-bind:class="(index === current_movie) ? ('active') : ('')">
+                <img v-for = "(element, index) in all_movies" v-bind:src="get_img_path(index)" v-bind:class="(index === current_movie) ? ('active') : ('')" @click="movie_jump(index)">
             </section>
         </main>
     </div>

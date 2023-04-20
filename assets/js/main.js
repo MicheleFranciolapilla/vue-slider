@@ -101,6 +101,11 @@ createApp({
         movie_forward()
         {
             (this.current_movie === this.all_movies.length - 1) ? (this.current_movie = 0) : (this.current_movie++)
+        },
+
+        movie_jump(movie_index)
+        {
+            this.current_movie = movie_index;
         }
     }
 }).mount('#app')

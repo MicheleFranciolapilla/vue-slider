@@ -54,5 +54,12 @@ img.active
 
 #web_page #thumbs_box img
 {
+    cursor: pointer;
     width: calc(95% / var(--movie_amount));
+}
+
+#web_page #thumbs_box img.active
+{
+    cursor: initial;
+    border: 3px solid yellow;
 }
