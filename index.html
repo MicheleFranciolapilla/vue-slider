@@ -19,22 +19,31 @@
 </head>
 <body>
 
-    <div id="app">
+    <!-- Blocco Vue -->
+    <div id="vue_app">
+        <!-- Blocco "pagina" in formato web app (100 viewport height) -->
         <main id="web_page" class="web_app_size d_flex flex_column flex_main_evenly flex_cross_center">
             <h1>{{page_title}}</h1>
+            <!-- Sezione carosello -->
             <section id="image_box" class="p_rel" @mouseover="autoplay_stop" @mouseleave="autoplay_go">
+                <!-- Caricamento dell'immagine attiva -->
                 <img v-bind:src="get_img_path(current_movie)" class="active">
+                <!-- Blocco informazioni sul film (immagine attiva) -->
                 <div id="info_box" class="p_abs p_bottom_left">
                     <h3>{{all_movies[current_movie].movie_title}}</h3>
                     <h5>Anno: {{all_movies[current_movie].release_year}}</h5>
                     <h5>Durata: {{all_movies[current_movie].movie_duration}} minuti</h5>
                 </div>
+                Sottoblocchi cliccabili (immagine precedente / immagine successiva)
                 <aside id="prev_movie" class="p_abs p_top_left" @click="movie_back"></aside>
                 <aside id="next_movie" class="p_abs p_top_right" @click="movie_forward"></aside>
             </section>
+            <!-- Sezione delle miniature -->
             <section id="thumbs_box" class="d_flex flex_main_btw flex_cross_center">
+                <!-- Contenitore della singola miniatura -->
                 <div v-for = "(element, index) in all_movies" class="p_rel" @click="movie_jump(index)">
                     <img v-bind:src="get_img_path(index)" v-bind:class="(index === current_movie) ? ('active') : ('')">
+                    <!-- Overlay con indice della miniatura -->
                     <span v-if="index != current_movie" class="p_abs p_center d_ib">{{index + 1}}</span>
                 </div>
             </section>
