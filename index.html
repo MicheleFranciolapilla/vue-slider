@@ -24,6 +24,11 @@
             <h1>{{page_title}}</h1>
             <section id="image_box" class="p_rel">
                 <img v-bind:src="get_img_path(current_movie)" class="active">
+                <div id="info_box" class="p_abs p_bottom_left">
+                    <h3>{{all_movies[current_movie].movie_title}}</h3>
+                    <h5>Anno: {{all_movies[current_movie].release_year}}</h5>
+                    <h5>Durata: {{all_movies[current_movie].movie_duration}} minuti</h5>
+                </div>
                 <aside id="prev_movie" class="p_abs p_top_left" @click="movie_back"></aside>
                 <aside id="next_movie" class="p_abs p_top_right" @click="movie_forward"></aside>
             </section>
