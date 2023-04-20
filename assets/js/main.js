@@ -16,11 +16,11 @@ createApp({
     data(){
         return{
             page_title:     "STAR WARS SAGA",
-            current_movie:  2,
+            current_movie:  0,
             img_folder:     "./assets/img/",
             all_movies:     [
                 {
-                    img_name:       "./assets/img/StarWars_1.webp",
+                    img_name:       "StarWars_1.webp",
                     movie_title:    "La minaccia fantasma",
                     movie_duration: 133,
                     release_year:   1999
@@ -76,10 +76,19 @@ createApp({
             ]
         }
     },
+    created(){
+        // this.init_css_var()
+    },
     methods: 
     {
+        // init_css_var()
+        // {
+
+        // }
+
         get_img_path(img_index)
         {
+            console.log(img_index,this.img_folder + this.all_movies[img_index].img_name)
             return this.img_folder + this.all_movies[img_index].img_name;
         }
     }
