@@ -77,19 +77,30 @@ createApp({
         }
     },
     created(){
-        // this.init_css_var()
+        this.init_css_var()
     },
     methods: 
     {
-        // init_css_var()
-        // {
-
-        // }
+        init_css_var()
+        {
+            let css_var_area = document.querySelector(":root");
+            css_var_area.style.setProperty("--movie_amount", this.all_movies.length);
+        },
 
         get_img_path(img_index)
         {
             console.log(img_index,this.img_folder + this.all_movies[img_index].img_name)
             return this.img_folder + this.all_movies[img_index].img_name;
+        },
+
+        movie_back()
+        {
+            (this.current_movie === 0) ? (this.current_movie = this.all_movies.length - 1) : (this.current_movie--)
+        },
+
+        movie_forward()
+        {
+            (this.current_movie === this.all_movies.length - 1) ? (this.current_movie = 0) : (this.current_movie++)
         }
     }
 }).mount('#app')

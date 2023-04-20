@@ -20,14 +20,14 @@
 <body>
 
     <div id="app">
-        <main id="web_page" class="web_app_size d_flex flex_column flex_main_btw flex_cross_center">
-            <h1 class="debug_g">{{page_title}}</h1>
-            <section id="image_box" class="p_rel debug_o">
-                <img v-bind:src="get_img_path(current_movie)" class="active debug_b">
-                <aside id="prev_movie" class="p_abs"></aside>
-                <aside id="next_movie" class="p_abs"></aside>
+        <main id="web_page" class="web_app_size d_flex flex_column flex_main_evenly flex_cross_center">
+            <h1>{{page_title}}</h1>
+            <section id="image_box" class="p_rel">
+                <img v-bind:src="get_img_path(current_movie)" class="active">
+                <aside id="prev_movie" class="p_abs p_top_left" @click="movie_back"></aside>
+                <aside id="next_movie" class="p_abs p_top_right" @click="movie_forward"></aside>
             </section>
-            <section id="thumbs_box" class="d_flex debug_y">
+            <section id="thumbs_box" class="d_flex flex_main_btw flex_cross_center">
                 <img v-for = "(element, index) in all_movies" v-bind:src="get_img_path(index)" v-bind:class="(index === current_movie) ? ('active') : ('')">
             </section>
         </main>
