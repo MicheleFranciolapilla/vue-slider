@@ -98,12 +98,12 @@ createApp({
 
         autoplay_go()
         {
-            // this.autoplay = setInterval( () => {this.movie_forward()}, 2000);
+            this.autoplay = setInterval( () => {this.movie_forward()}, 2000);
         },
 
         autoplay_stop()
         {
-            // clearInterval(this.autoplay);
+            clearInterval(this.autoplay);
         },
 
         check_keyboard()

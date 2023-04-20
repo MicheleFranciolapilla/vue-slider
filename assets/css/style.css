@@ -62,14 +62,26 @@ img.active
     filter: brightness(100%);
 }
 
-#web_page #thumbs_box img
+#web_page #thumbs_box div
 {
     cursor: pointer;
     width: calc(95% / var(--movie_amount));
 }
 
-#web_page #thumbs_box img.active
+#web_page #thumbs_box div img.active
 {
     cursor: initial;
     border: 3px solid yellow;
+}
+
+#web_page #thumbs_box div span
+{
+    width: 3rem;
+    aspect-ratio: 1;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
 }
