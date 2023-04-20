@@ -33,8 +33,8 @@
                 <aside id="next_movie" class="p_abs p_top_right" @click="movie_forward"></aside>
             </section>
             <section id="thumbs_box" class="d_flex flex_main_btw flex_cross_center">
-                <div v-for = "(element, index) in all_movies" class="p_rel">
-                    <img v-bind:src="get_img_path(index)" v-bind:class="(index === current_movie) ? ('active') : ('')" @click="movie_jump(index)">
+                <div v-for = "(element, index) in all_movies" class="p_rel" @click="movie_jump(index)">
+                    <img v-bind:src="get_img_path(index)" v-bind:class="(index === current_movie) ? ('active') : ('')">
                     <span v-if="index != current_movie" class="p_abs p_center d_ib">{{index + 1}}</span>
                 </div>
             </section>

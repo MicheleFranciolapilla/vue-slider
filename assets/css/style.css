@@ -55,6 +55,7 @@
 img
 {
     filter: brightness(10%);
+    transition: all 1.5s; 
 }
 
 img.active

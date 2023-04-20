@@ -98,7 +98,7 @@ createApp({
 
         autoplay_go()
         {
-            this.autoplay = setInterval( () => {this.movie_forward()}, 2000);
+            this.autoplay = setInterval( () => {this.movie_forward()}, 3000);
         },
 
         autoplay_stop()
@@ -135,12 +135,12 @@ createApp({
 
         movie_back()
         {
-            (this.current_movie === 0) ? (this.current_movie = this.all_movies.length - 1) : (this.current_movie--)
+            (this.current_movie === 0) ? (this.current_movie = this.all_movies.length - 1) : (this.current_movie--);
         },
 
         movie_forward()
         {
-            (this.current_movie === this.all_movies.length - 1) ? (this.current_movie = 0) : (this.current_movie++)
+            (this.current_movie === this.all_movies.length - 1) ? (this.current_movie = 0) : (this.current_movie++);
         },
 
         movie_jump(movie_index)
