@@ -22,7 +22,7 @@
     <div id="app">
         <main id="web_page" class="web_app_size d_flex flex_column flex_main_evenly flex_cross_center">
             <h1>{{page_title}}</h1>
-            <section id="image_box" class="p_rel">
+            <section id="image_box" class="p_rel" @mouseover="autoplay_stop" @mouseleave="autoplay_go">
                 <img v-bind:src="get_img_path(current_movie)" class="active">
                 <div id="info_box" class="p_abs p_bottom_left">
                     <h3>{{all_movies[current_movie].movie_title}}</h3>

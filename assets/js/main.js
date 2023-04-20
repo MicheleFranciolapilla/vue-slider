@@ -16,6 +16,7 @@ createApp({
     data(){
         return{
             page_title:     "STAR WARS SAGA",
+            autoplay:       null, 
             current_movie:  0,
             img_folder:     "./assets/img/",
             all_movies:     [
@@ -77,7 +78,9 @@ createApp({
         }
     },
     created(){
-        this.init_css_var()
+        this.init_css_var(),
+        this.random_start(),
+        this.autoplay_go()
     },
     methods: 
     {
@@ -85,6 +88,21 @@ createApp({
         {
             let css_var_area = document.querySelector(":root");
             css_var_area.style.setProperty("--movie_amount", this.all_movies.length);
+        },
+
+        random_start()
+        {
+            this.current_movie = Math.floor(Math.random() * this.all_movies.length);
+        },
+
+        autoplay_go()
+        {
+            this.autoplay = setInterval( () => {this.movie_forward()}, 2000);
+        },
+
+        autoplay_stop()
+        {
+            clearInterval(this.autoplay);
         },
 
         get_img_path(img_index)
